@@ -1,1 +1,80 @@
-#include 
+#include <stdio.h>
+#include <stdlib.h>
+
+struct node {
+	char info[1025];
+	struct node *next;
+};
+
+void printList(struct node * pointer) {
+	struct node *temp = pointer;
+	printf("Contenido de la lista: \n");
+	while(temp) {
+		printf("%s -> ", temp -> info);
+		temp = temp -> next;
+	}
+	printf("\n");
+}
+
+void insertatbeginning(struct node **h, char nd[]) {
+	struct node *temp = malloc(sizeof(struct node));
+	temp -> info = nd;
+	temp -> next = *h;
+	*h = temp;
+}
+
+int main() {
+	struct node *head = NULL;
+	char newdata[1025];
+	int n = 1;
+	while(n != 0) {
+		char ntemp[24];
+		fgets(ntemp, 24, stdin);
+		int n = 0;
+		n = atoi(ntemp);
+
+		switch(n) {
+			// 1. insert at the beginning (head, newData)
+			case 1: fgets(newdata, 1025, stdin);
+			insertatbeginning(&head, newdata);
+
+
+
+
+			// 2. insert at the end (head, newData)
+			// 3. insert before (head, reference, newData)
+			// 4. insert after (head, reference, newData)
+			// 5. insert n before (head, n, reference, newData)
+			// 6. insert n after (head, n, reference, newData)
+			// 7. delete at the beginning (head)
+			// 8. delete at the end (head)
+			// 9. delete before (head, reference)
+			// 10. delete after (head, reference)
+			// 11. delete n before (head, n, reference)
+			// 12. delete n after (head, n, reference)
+			// 13. print (head)
+			// 14. print backwards (head)
+			// 15. recursive print (head)
+			// 16. recursive backwards print (head)
+			// 17. search (head, data)
+			// 18. search from last to first (head, data)
+			// 19. recursive search (head, data)
+			// 20. recursive search from last to first (head, data)
+			// 21. ascending sort the elements (head)
+			// 22. descending sort the elements (head)
+			// 0. quit
+	}
+	
+	}
+
+
+	//printList(head);
+//
+	//insertatbeginning(&head, 3);
+	//insertatbeginning(&head, 5);
+	//insertatbeginning(&head, 1);
+	//insertatbeginning(&head, 2);
+//
+	//printList(head);
+	return 0;
+}
